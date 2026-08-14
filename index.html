@@ -391,6 +391,19 @@
       }
     }
   </style>
+
+  <script>
+    // Multi-fallback image loader
+    function tryNextImage(img, fallbacks) {
+      if (fallbacks && fallbacks.length > 0) {
+        var nextSrc = fallbacks.shift();
+        img.onerror = function() { tryNextImage(img, fallbacks); };
+        img.src = nextSrc;
+      } else {
+        img.onerror = null;
+      }
+    }
+  </script>
 </head>
 <body>
 
@@ -430,7 +443,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood1.jpg" alt="GURJAN TREE" onerror="this.onerror=null;this.src='plywood1.JPG';">
+          <img src="plywood1.jpg" alt="GURJAN TREE" onerror="tryNextImage(this, ['plywood1.JPG', 'plywood1.png', 'plywood1.jpeg'])">
           <span class="product-badge">100% GURJAN</span>
         </div>
         <div class="product-details">
@@ -444,7 +457,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood2.jpg" alt="CLUB Marine Ply" onerror="this.onerror=null;this.src='plywood2.JPG';">
+          <img src="plywood2.jpg" alt="CLUB Marine Ply" onerror="tryNextImage(this, ['plywood2.JPG', 'plywood2.png', 'plywood2.jpeg'])">
           <span class="product-badge">100% FACE-VANEER</span>
         </div>
         <div class="product-details">
@@ -458,7 +471,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood3.jpg" alt="INDOMARINE PLATINUM" onerror="this.onerror=null;this.src='plywood3.JPG';">
+          <img src="plywood3.jpg" alt="INDOMARINE PLATINUM" onerror="tryNextImage(this, ['plywood3.JPG', 'plywood3.png', 'plywood3.jpeg'])">
           <span class="product-badge">100% CALIBRATED</span>
         </div>
         <div class="product-details">
@@ -472,7 +485,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood4.jpg" alt="OPTIMUM PLY" onerror="this.onerror=null;this.src='plywood4.JPG';">
+          <img src="plywood4.jpg" alt="OPTIMUM PLY" onerror="tryNextImage(this, ['plywood4.JPG', 'plywood4.png', 'plywood4.jpeg'])">
           <span class="product-badge">100% Gurjan Marine</span>
         </div>
         <div class="product-details">
@@ -486,7 +499,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood5.jpg" alt="SUPER GOLD" onerror="this.onerror=null;this.src='plywood5.JPG';">
+          <img src="plywood5.jpg" alt="SUPER GOLD" onerror="tryNextImage(this, ['plywood5.JPG', 'plywood5.png', 'plywood5.jpeg'])">
           <span class="product-badge">100% HARDWOOD</span>
         </div>
         <div class="product-details">
@@ -500,7 +513,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood6.jpg" alt="CHERRY WOOD" onerror="this.onerror=null;this.src='plywood6.JPG';">
+          <img src="plywood6.jpg" alt="CHERRY WOOD" onerror="tryNextImage(this, ['plywood6.JPG', 'plywood6.png', 'plywood6.jpeg'])">
           <span class="product-badge">⚓️ MARINE GRADE</span>
         </div>
         <div class="product-details">
@@ -514,7 +527,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood7.jpg" alt="INDOMARINE GOLD" onerror="this.onerror=null;this.src='plywood7.JPG';">
+          <img src="plywood7.jpg" alt="INDOMARINE GOLD" onerror="tryNextImage(this, ['plywood7.JPG', 'plywood7.png', 'plywood7.jpeg'])">
           <span class="product-badge">100% CALIBRATED</span>
         </div>
         <div class="product-details">
@@ -528,7 +541,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood8.jpg" alt="CLUB BWP Marine Ply" onerror="this.onerror=null;this.src='plywood8.JPG';">
+          <img src="plywood8.jpg" alt="CLUB BWP Marine Ply" onerror="tryNextImage(this, ['plywood8.JPG', 'plywood8.png', 'plywood8.jpeg'])">
           <span class="product-badge">(BWP) GRADE</span>
         </div>
         <div class="product-details">
@@ -542,7 +555,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood9.jpg" alt="MARSHAL" onerror="this.onerror=null;this.src='plywood9.JPG';">
+          <img src="plywood9.jpg" alt="MARSHAL" onerror="tryNextImage(this, ['plywood9.JPG', 'plywood9.png', 'plywood9.jpeg'])">
           <span class="product-badge">Commercial Grade</span>
         </div>
         <div class="product-details">
@@ -556,7 +569,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood10.jpg" alt="LG-GOLD" onerror="this.onerror=null;this.src='plywood10.JPG';">
+          <img src="plywood10.jpg" alt="LG-GOLD" onerror="tryNextImage(this, ['plywood10.JPG', 'plywood10.png', 'plywood10.jpeg'])">
           <span class="product-badge">100% GURJAN</span>
         </div>
         <div class="product-details">
@@ -572,7 +585,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="mdf1.JPG" alt="VIR MAXPRO HDFWR" onerror="this.onerror=null;this.src='mdf1.jpg';">
+          <img src="mdf1.JPG" alt="VIR MAXPRO HDFWR" onerror="tryNextImage(this, ['mdf1.jpg', 'mdf1.PNG', 'mdf1.png', 'mdf1.jpeg'])">
           <span class="product-badge">Double Hardened</span>
         </div>
         <div class="product-details">
@@ -586,7 +599,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="mdf2.jpg" alt="VIR Eco Friendly HDFWR" onerror="this.onerror=null;this.src='mdf2.JPG';">
+          <img src="mdf2.jpg" alt="VIR Eco Friendly HDFWR" onerror="tryNextImage(this, ['mdf2.JPG', 'mdf2.PNG', 'mdf2.png', 'mdf2.jpeg', 'mdf-2.jpg', 'mdf-2.JPG', 'mdf-2.png'])">
           <span class="product-badge">Agro Wood</span>
         </div>
         <div class="product-details">
@@ -600,7 +613,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="vir-ply.jpg" alt="VIR Modala Ply" onerror="this.onerror=null;this.src='vir-ply.JPG';">
+          <img src="vir-ply.jpg" alt="VIR Modala Ply" onerror="tryNextImage(this, ['vir-ply.JPG', 'vir-ply.PNG', 'vir-ply.png', 'vir-ply.jpeg', 'virply.jpg', 'virply.JPG', 'virply.png', 'mdf3.jpg', 'mdf3.JPG'])">
           <span class="product-badge">Ultimate Strength</span>
         </div>
         <div class="product-details">
@@ -616,7 +629,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="laminate1.PNG" alt="Merino Vogue" onerror="this.onerror=null;this.src='laminate1.png';">
+          <img src="laminate1.PNG" alt="Merino Vogue" onerror="tryNextImage(this, ['laminate1.png', 'laminate1.jpg', 'laminate1.JPG'])">
           <span class="product-badge">Vogue Collection</span>
         </div>
         <div class="product-details">
@@ -630,7 +643,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="laminate2.jpg" alt="Merino Sampada" onerror="this.onerror=null;this.src='laminate2.JPG';">
+          <img src="laminate2.jpg" alt="Merino Sampada" onerror="tryNextImage(this, ['laminate2.JPG', 'laminate2.PNG', 'laminate2.png'])">
           <span class="product-badge">Heritage</span>
         </div>
         <div class="product-details">
@@ -644,7 +657,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="laminate3.PNG" alt="Merino Cement & Leather" onerror="this.onerror=null;this.src='laminate3.png';">
+          <img src="laminate3.PNG" alt="Merino Cement & Leather" onerror="tryNextImage(this, ['laminate3.png', 'laminate3.jpg', 'laminate3.JPG'])">
           <span class="product-badge">Concrete & Leather</span>
         </div>
         <div class="product-details">
@@ -658,7 +671,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="laminate4.PNG" alt="Merino Ribbed" onerror="this.onerror=null;this.src='laminate4.png';">
+          <img src="laminate4.PNG" alt="Merino Ribbed" onerror="tryNextImage(this, ['laminate4.png', 'laminate4.jpg', 'laminate4.JPG'])">
           <span class="product-badge">Fluted & Wood</span>
         </div>
         <div class="product-details">
@@ -672,7 +685,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="laminate5.PNG" alt="Merino Sampada Ethnic" onerror="this.onerror=null;this.src='laminate5.png';">
+          <img src="laminate5.PNG" alt="Merino Sampada Ethnic" onerror="tryNextImage(this, ['laminate5.png', 'laminate5.jpg', 'laminate5.JPG'])">
           <span class="product-badge">Ethnic Art</span>
         </div>
         <div class="product-details">
@@ -686,7 +699,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="laminate6.PNG" alt="Merino Speciality" onerror="this.onerror=null;this.src='laminate6.png';">
+          <img src="laminate6.PNG" alt="Merino Speciality" onerror="tryNextImage(this, ['laminate6.png', 'laminate6.jpg', 'laminate6.JPG'])">
           <span class="product-badge">Natural Feel</span>
         </div>
         <div class="product-details">
@@ -702,7 +715,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="panel1.PNG" alt="SLAT Louvered Planks" onerror="this.onerror=null;this.src='panel1.png';">
+          <img src="panel1.PNG" alt="SLAT Louvered Planks" onerror="tryNextImage(this, ['panel1.png', 'panel1.jpg', 'panel1.JPG'])">
           <span class="product-badge">Wall Paneling</span>
         </div>
         <div class="product-details">
@@ -716,7 +729,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="panel2.PNG" alt="Branded Pre-Laminated Panels" onerror="this.onerror=null;this.src='panel2.png';">
+          <img src="panel2.PNG" alt="Branded Pre-Laminated Panels" onerror="tryNextImage(this, ['panel2.png', 'panel2.jpg', 'panel2.JPG'])">
           <span class="product-badge">Prelam Boards</span>
         </div>
         <div class="product-details">
