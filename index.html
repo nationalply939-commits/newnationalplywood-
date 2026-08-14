@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New National Plywood - Premium Timber & Interior Solutions</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    header {
+      background: #111827;
+      color: #fff;
+      padding: 15px 5%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .logo-container h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fbbf24;
+      letter-spacing: 0.5px;
+    }
+
+    .logo-container p {
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fbbf24;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #f3f4f6;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 25px auto;
+      color: #d1d5db;
+    }
+
+    .btn-main {
+      background: #25d366;
+      color: white;
+      padding: 12px 28px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      transition: transform 0.2s;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-3px);
+    }
+
+    .products-section {
+      padding: 60px 5%;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-tag {
+      background: #fef3c7;
+      color: #d97706;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: #1f2937;
+      margin-top: 10px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .product-img-box {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      background: #e5e7eb;
+    }
+
+    .product-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: rgba(17, 24, 39, 0.85);
+      color: #fbbf24;
+      padding: 5px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
+    }
+
+    .product-details {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-details h3 {
+      font-size: 1.15rem;
+      color: #111827;
+      margin-bottom: 10px;
+    }
+
+    .product-details p {
+      font-size: 0.88rem;
+      color: #6b7280;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .btn-inquire {
+      background: #059669;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s;
+    }
+
+    .btn-inquire:hover {
+      background: #047857;
+    }
+
+    /* BRANCHES & CONTACT SECTION */
+    .contact-section {
+      background: #111827;
+      color: #fff;
+      padding: 60px 5%;
+    }
+
+    .branches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 40px auto;
+    }
+
+    .branch-card {
+      background: #1f2937;
+      border: 1px solid #374151;
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .branch-card h3 {
+      color: #fbbf24;
+      font-size: 1.25rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #374151;
+      padding-bottom: 10px;
+    }
+
+    .branch-card p {
+      color: #d1d5db;
+      font-size: 0.92rem;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .phone-list {
+      margin: 15px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .phone-list li {
+      margin-bottom: 8px;
+    }
+
+    .phone-list a {
+      color: #25d366;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .phone-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* REVIEWS SECTION */
+    .reviews-section {
+      background: #ffffff;
+      padding: 60px 5%;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto 50px auto;
+    }
+
+    .review-card {
+      background: #f9fafb;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .stars {
+      color: #fbbf24;
+      margin-bottom: 10px;
+    }
+
+    .review-text {
+      font-size: 0.9rem;
+      color: #4b5563;
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    .reviewer-name {
+      font-weight: 600;
+      color: #111827;
+      font-size: 0.95rem;
+    }
+
+    .review-form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #f3f4f6;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .review-form-container h3 {
+      margin-bottom: 20px;
+      color: #111827;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #374151;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    .btn-submit-review {
+      background: #111827;
+      color: #fff;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-submit-review:hover {
+      background: #1f2937;
+    }
+
+    footer {
+      background: #0b0f17;
+      color: #9ca3af;
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+      nav a {
+        margin: 0 10px;
+      }
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <h1>NEW NATIONAL PLYWOOD</h1>
+      <p>Plywood • MDF • Laminates • Louvered Panels</p>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#products">Catalog</a>
+      <a href="#branches">Our Branches</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h2>Premium Interior Woodcraft Solutions</h2>
+    <p>Discover top-grade BWR/BWP Plywood, VIR HDFWR, Merino Laminates, and SLAT Louvered Wall Panels.</p>
+    <a href="https://wa.me/918686442334?text=Hi,%20I%20want%20to%20inquire%20about%20your%20plywood%20and%20interior%20products" class="btn-main" target="_blank">
+      <i class="fab fa-whatsapp"></i> Chat on WhatsApp (+91 86864 42334)
+    </a>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products-section">
+    <div class="section-head">
+      <span class="section-tag">Complete Catalog</span>
+      <h2 class="section-title">Our Premium Product Range</h2>
+    </div>
+
+    <div class="product-grid">
+
+      <!-- ================= 10 PLYWOODS ================= -->
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="plywood1.jpg" alt="GURJAN TREE">
+          <span class="product-badge">100% GURJAN</span>
+        </div>
+        <div class="product-details">
+          <h3>GURJAN TREE (Ply & Boards)[BWR]</h3>
+          <p>100% GURJAN. Boiling Water Resistant Plywood built for extreme longevity.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20GURJAN%20TREE%20BWR" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="plywood2.jpg" alt="CLUB Marine Ply">
+          <span class="product-badge">100% FACE-VANEER</span>
+        </div>
+        <div class="product-details">
+          <h3>CLUB ~ 100% FACE-VANEER</h3>
+          <p>ALTERNATE PLYWOOD - MARINE PLY.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20CLUB%20Alternate%20Marine%20Ply" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="plywood3.jpg" alt="INDOMARINE PLATINUM">
+          <span class="product-badge">100% CALIBRATED</span>
+        </div>
+        <div class="product-details">
+          <h3>INDOMARINE PLATINUM — (BWP)</h3>
+          <p>100% CALIBRATED - Indomarine Boiling Water Proof Quality.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20INDOMARINE%20PLATINUM" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="plywood4.jpg" alt="OPTIMUM PLY">
+          <span class="product-badge">100% Gurjan Marine</span>
+        </div>
+        <div class="product-details">
+          <h3>OPTIMUM PLY</h3>
+          <p>100% Gurjan Marine Plywood for all heavy moisture areas.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20OPTIMUM%20Gurjan%20Marine%20Ply" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="plywood5.jpg" alt="SUPER GOLD">
+          <span class="product-badge">100% HARDWOOD</span>
+        </div>
+        <div class="product-details">
+          <h3>SUPER GOLD (Ply & boards)</h3>
+          <p>100% HARDWOOD Core structural wood.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20SUPER%20GOLD%20Hardwood" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="plywood6.jpg" alt="CHERRY WOOD">
+          <span class="product-badge">⚓️ MARINE GRADE</span>
+        </div>
+        <div class="product-details">
+          <h3>CHERRY WOOD (ply & boards)</h3>
+          <p>100% GURJAN ⚓️ MARINE GRADE Plywood.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20CHERRY%20WOOD%20Marine%20Ply" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="plywood7.jpg" alt="INDOMARINE GOLD">
+          <span class="product-badge">100% CALIBRATED</span>
+        </div>
+        <div class="product-details">
+          <h3>INDOMARINE GOLD (BWP)</h3>
+          <p>100% CALIBRATED - Indomarine Premium Board.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20INDOMARINE%20GOLD" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="plywood8.jpg" alt="CLUB BWP Marine Ply">
+          <span class="product-badge">(BWP) GRADE</span>
+        </div>
+        <div class="product-details">
+          <h3>CLUB ~ 100% FACE-VANEER</h3>
+          <p>(BWP) GRADE MARINE PLY.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20CLUB%20BWP%20Marine%20Ply" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="plywood9.jpg" alt="MARSHAL">
+          <span class="product-badge">Commercial Grade</span>
+        </div>
+        <div class="product-details">
+          <h3>MARSHAL (ply & boards)</h3>
+          <p>Durable commercial grade plywood & flush doors.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20MARSHAL%20Ply%20and%20Boards" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="plywood10.jpg" alt="LG-GOLD">
+          <span class="product-badge">100% GURJAN</span>
+        </div>
+        <div class="product-details">
+          <h3>LG-GOLD (ply & boards)</h3>
+          <p>100% GURJAN MARINE PLY.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20LG-GOLD%20Marine%20Ply" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <!-- ================= 3 MDF / HDFWR ================= -->
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="mdf1.jpg" alt="VIR MAXPRO HDFWR">
+          <span class="product-badge">Double Hardened</span>
+        </div>
+        <div class="product-details">
+          <h3>VIR MAXPRO HDFWR</h3>
+          <p>High Density Fiber Board with double hardened weather resistance.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20VIR%20MAXPRO%20HDFWR" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="mdf2.jpg" alt="VIR Eco Friendly HDFWR">
+          <span class="product-badge">Agro Wood</span>
+        </div>
+        <div class="product-details">
+          <h3>VIR Eco-Friendly HDFWR</h3>
+          <p>Sustainably made Agro Wood board with high moisture-resistance.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20VIR%20Eco%20Friendly%20HDFWR" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="vir-ply.jpg" alt="VIR Modala Ply">
+          <span class="product-badge">Ultimate Strength</span>
+        </div>
+        <div class="product-details">
+          <h3>VIR Modala Ply</h3>
+          <p>Strong weather resistant heavy load bearing board.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20VIR%20Modala%20Ply" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <!-- ================= 6 MERINO LAMINATES ================= -->
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="laminate1.jpg" alt="Merino Vogue">
+          <span class="product-badge">Vogue Collection</span>
+        </div>
+        <div class="product-details">
+          <h3>Merino Vogue - Slant & Reeds</h3>
+          <p>Linear SLT and woven reed texture laminates.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20Merino%20Vogue" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="laminate2.jpg" alt="Merino Sampada">
+          <span class="product-badge">Heritage</span>
+        </div>
+        <div class="product-details">
+          <h3>Merino Sampada - Kamika Series</h3>
+          <p>Botanical prints & heritage inspired decorative sheets.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20Merino%20Sampada" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="laminate3.jpg" alt="Merino Cement & Leather">
+          <span class="product-badge">Concrete & Leather</span>
+        </div>
+        <div class="product-details">
+          <h3>Merino Cement & Nubuck Leather</h3>
+          <p>Real concrete look and tactile leather finish laminates.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20Merino%20Leather%20Laminates" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="laminate4.jpg" alt="Merino Ribbed">
+          <span class="product-badge">Fluted & Wood</span>
+        </div>
+        <div class="product-details">
+          <h3>Merino Ribbed & Finewood Series</h3>
+          <p>3D fluted textures and authentic natural wood grains.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20Merino%20Ribbed" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="laminate5.jpg" alt="Merino Sampada Ethnic">
+          <span class="product-badge">Ethnic Art</span>
+        </div>
+        <div class="product-details">
+          <h3>Merino Sampada - Heritage Art</h3>
+          <p>Traditional Indian motifs for high-end interior accents.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20Merino%20Ethnic" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="laminate6.jpg" alt="Merino Speciality">
+          <span class="product-badge">Natural Feel</span>
+        </div>
+        <div class="product-details">
+          <h3>Merino Speciality Laminature</h3>
+          <p>Mountain Pine wood finish in Denim and Mocha tones.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20Merino%20Laminature" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <!-- ================= 2 WALL PANELS ================= -->
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="panel1.jpg" alt="SLAT Louvered Planks">
+          <span class="product-badge">Wall Paneling</span>
+        </div>
+        <div class="product-details">
+          <h3>SLAT Louvered Planks Collection</h3>
+          <p>9ft x 122mm Louvered planks for TV units and walls.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20SLAT%20Louvered%20Planks" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="panel2.jpg" alt="Branded Pre-Laminated Panels">
+          <span class="product-badge">Prelam Boards</span>
+        </div>
+        <div class="product-details">
+          <h3>Premium Pre-Laminated Panels</h3>
+          <p>CenturyPly, Greenlam, Merino Lustre & TESA range.</p>
+          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20Pre-Laminated%20Panels" class="btn-inquire" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BRANCHES & CONTACT SECTION -->
+  <section id="branches" class="contact-section">
+    <div class="section-head">
+      <span class="section-tag" style="background:#374151; color:#fbbf24;">Our Store Locations</span>
+      <h2 class="section-title" style="color:#fff;">Branches & Contact Details</h2>
+    </div>
+
+    <div class="branches-grid">
+      <!-- Hyderabad Branch -->
+      <div class="branch-card">
+        <h3><i class="fas fa-store"></i> HYDERABAD BRANCH</h3>
+        <p><strong>NEW NATIONAL PLYWOOD</strong></p>
+        <p><i class="fas fa-map-marker-alt" style="color:#fbbf24;"></i> # 12-2-389/44/1, Beside Sajid Kirana Store, Opp. Chicken Centre, Ali Nagar, Saber Nagar, Hyderabad.</p>
+        <p><strong>Contact Numbers:</strong></p>
+        <ul class="phone-list">
+          <li><a href="https://wa.me/919848156702" target="_blank"><i class="fab fa-whatsapp"></i> +91 98481 56702</a></li>
+          <li><a href="https://wa.me/918686442334" target="_blank"><i class="fab fa-whatsapp"></i> +91 86864 42334</a></li>
+        </ul>
+      </div>
+
+      <!-- Gulbarga Branch -->
+      <div class="branch-card">
+        <h3><i class="fas fa-store"></i> GULBARGA BRANCH</h3>
+        <p><strong>NATIONAL VENEERS & PLYWOOD</strong></p>
+        <p><i class="fas fa-map-marker-alt" style="color:#fbbf24;"></i> 5-993/36/1/18, Beside Saba Function Hall, Hagarga Road, Gulbarga, Karnataka.</p>
+        <p><strong>Contact Numbers:</strong></p>
+        <ul class="phone-list">
+          <li><a href="https://wa.me/919513060750" target="_blank"><i class="fab fa-whatsapp"></i> +91 95130 60750</a></li>
+          <li><a href="https://wa.me/917090011535" target="_blank"><i class="fab fa-whatsapp"></i> +91 70900 11535</a></li>
+          <li><a href="https://wa.me/918792486738" target="_blank"><i class="fab fa-whatsapp"></i> +91 87924 86738</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS SECTION -->
+  <section id="reviews" class="reviews-section">
+    <div class="section-head">
+      <span class="section-tag">Testimonials</span>
+      <h2 class="section-title">What Our Clients Say</h2>
+    </div>
+
+    <div class="review-grid" id="reviewContainer">
+      <div class="review-card">
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="review-text">"Top-quality Gurjan plywood! Used it for my entire kitchen interiors, very durable and genuine products."</p>
+        <p class="reviewer-name">- Verified Buyer</p>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="review-text">"Best wholesale prices in Hyderabad and Gulbarga for Merino Laminates and SLAT panels."</p>
+        <p class="reviewer-name">- Customer Review</p>
+      </div>
+    </div>
+
+    <div class="review-form-container">
+      <h3>Leave a Review</h3>
+      <form id="reviewForm">
+        <div class="form-group">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" required placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label for="rating">Rating:</label>
+          <select id="rating" required>
+            <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+            <option value="4">⭐⭐⭐⭐ (4/5)</option>
+            <option value="3">⭐⭐⭐ (3/5)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="comment">Your Feedback:</label>
+          <textarea id="comment" rows="3" required placeholder="Write your feedback here..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit-review">Submit Review</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 New National Plywood. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Review Form Submission Handler
+    document.getElementById('reviewForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const rating = parseInt(document.getElementById('rating').value);
+      const comment = document.getElementById('comment').value;
+
+      let starsHtml = '';
+      for (let i = 0; i < rating; i++) {
+        starsHtml += '<i class="fas fa-star"></i>';
+      }
+
+      const reviewCard = document.createElement('div');
+      reviewCard.className = 'review-card';
+      reviewCard.innerHTML = `
+        <div class="stars">${starsHtml}</div>
+        <p class="review-text">"${comment}"</p>
+        <p class="reviewer-name">- ${name}</p>
+      `;
+
+      document.getElementById('reviewContainer').appendChild(reviewCard);
+      document.getElementById('reviewForm').reset();
+      alert('Thank you for your review!');
+    });
+  </script>
+
+</body>
+</html>
