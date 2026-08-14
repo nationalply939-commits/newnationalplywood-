@@ -197,8 +197,9 @@
     .btn-inquire {
       background: #059669;
       color: #fff;
-      text-decoration: none;
-      text-align: center;
+      border: none;
+      cursor: pointer;
+      width: 100%;
       padding: 10px;
       border-radius: 8px;
       font-weight: 600;
@@ -369,6 +370,91 @@
       background: #1f2937;
     }
 
+    /* MODAL POPUP FOR BRANCH SELECTION */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-card {
+      background: #fff;
+      width: 90%;
+      max-width: 420px;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-card h3 {
+      font-size: 1.2rem;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .modal-card p {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-bottom: 20px;
+    }
+
+    .modal-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .branch-btn {
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      transition: transform 0.2s;
+    }
+
+    .btn-hyd {
+      background: #111827;
+    }
+
+    .btn-hyd:hover {
+      background: #1f2937;
+    }
+
+    .btn-glb {
+      background: #d97706;
+    }
+
+    .btn-glb:hover {
+      background: #b45309;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      color: #9ca3af;
+      cursor: pointer;
+    }
+
     footer {
       background: #0b0f17;
       color: #9ca3af;
@@ -391,19 +477,6 @@
       }
     }
   </style>
-
-  <script>
-    // Multi-fallback image loader
-    function tryNextImage(img, fallbacks) {
-      if (fallbacks && fallbacks.length > 0) {
-        var nextSrc = fallbacks.shift();
-        img.onerror = function() { tryNextImage(img, fallbacks); };
-        img.src = nextSrc;
-      } else {
-        img.onerror = null;
-      }
-    }
-  </script>
 </head>
 <body>
 
@@ -425,9 +498,9 @@
   <section id="home" class="hero">
     <h2>Premium Interior Woodcraft Solutions</h2>
     <p>Discover top-grade BWR/BWP Plywood, VIR HDFWR, Merino Laminates, and SLAT Louvered Wall Panels.</p>
-    <a href="https://wa.me/918686442334?text=Hi,%20I%20want%20to%20inquire%20about%20your%20plywood%20and%20interior%20products" class="btn-main" target="_blank">
-      <i class="fab fa-whatsapp"></i> Chat on WhatsApp (+91 86864 42334)
-    </a>
+    <button onclick="openBranchModal('General Inquiry')" class="btn-main">
+      <i class="fab fa-whatsapp"></i> Inquiry via WhatsApp
+    </button>
   </section>
 
   <!-- Products Section -->
@@ -439,305 +512,447 @@
 
     <div class="product-grid">
 
-      <!-- ================= 10 PLYWOODS ================= -->
+      <!-- ================= PLYWOODS ================= -->
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./plywood1.jpg" alt="GURJAN TREE" onerror="tryNextImage(this, ['./plywood1.JPG', './plywood1.png', './plywood1.jpeg'])">
+          <img src="plywood1.jpg" alt="GURJAN TREE">
           <span class="product-badge">100% GURJAN</span>
         </div>
         <div class="product-details">
           <h3>GURJAN TREE (Ply & Boards)[BWR]</h3>
           <p>100% GURJAN. Boiling Water Resistant Plywood built for extreme longevity.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20GURJAN%20TREE%20BWR" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('GURJAN TREE (Ply & Boards)[BWR]')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./plywood2.jpg" alt="CLUB Marine Ply" onerror="tryNextImage(this, ['./plywood2.JPG', './plywood2.png', './plywood2.jpeg'])">
+          <img src="plywood2.jpg" alt="CLUB Marine Ply">
           <span class="product-badge">100% FACE-VANEER</span>
         </div>
         <div class="product-details">
           <h3>CLUB ~ 100% FACE-VANEER</h3>
           <p>ALTERNATE PLYWOOD - MARINE PLY.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20CLUB%20Alternate%20Marine%20Ply" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('CLUB Alternate Marine Ply')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./plywood3.jpg" alt="INDOMARINE PLATINUM" onerror="tryNextImage(this, ['./plywood3.JPG', './plywood3.png', './plywood3.jpeg'])">
+          <img src="plywood3.jpg" alt="INDOMARINE PLATINUM">
           <span class="product-badge">100% CALIBRATED</span>
         </div>
         <div class="product-details">
           <h3>INDOMARINE PLATINUM — (BWP)</h3>
           <p>100% CALIBRATED - Indomarine Boiling Water Proof Quality.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20INDOMARINE%20PLATINUM" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('INDOMARINE PLATINUM (BWP)')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./plywood4.jpg" alt="OPTIMUM PLY" onerror="tryNextImage(this, ['./plywood4.JPG', './plywood4.png', './plywood4.jpeg'])">
+          <img src="plywood4.jpg" alt="OPTIMUM PLY">
           <span class="product-badge">100% Gurjan Marine</span>
         </div>
         <div class="product-details">
           <h3>OPTIMUM PLY</h3>
           <p>100% Gurjan Marine Plywood for all heavy moisture areas.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20OPTIMUM%20Gurjan%20Marine%20Ply" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('OPTIMUM PLY')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./plywood5.jpg" alt="SUPER GOLD" onerror="tryNextImage(this, ['./plywood5.JPG', './plywood5.png', './plywood5.jpeg'])">
+          <img src="plywood5.jpg" alt="SUPER GOLD">
           <span class="product-badge">100% HARDWOOD</span>
         </div>
         <div class="product-details">
           <h3>SUPER GOLD (Ply & boards)</h3>
           <p>100% HARDWOOD Core structural wood.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20SUPER%20GOLD%20Hardwood" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('SUPER GOLD (Ply & boards)')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./plywood6.jpg" alt="CHERRY WOOD" onerror="tryNextImage(this, ['./plywood6.JPG', './plywood6.png', './plywood6.jpeg'])">
+          <img src="plywood6.jpg" alt="CHERRY WOOD">
           <span class="product-badge">⚓️ MARINE GRADE</span>
         </div>
         <div class="product-details">
           <h3>CHERRY WOOD (ply & boards)</h3>
           <p>100% GURJAN ⚓️ MARINE GRADE Plywood.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20CHERRY%20WOOD%20Marine%20Ply" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('CHERRY WOOD (ply & boards)')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./plywood7.jpg" alt="INDOMARINE GOLD" onerror="tryNextImage(this, ['./plywood7.JPG', './plywood7.png', './plywood7.jpeg'])">
+          <img src="plywood7.jpg" alt="INDOMARINE GOLD">
           <span class="product-badge">100% CALIBRATED</span>
         </div>
         <div class="product-details">
           <h3>INDOMARINE GOLD (BWP)</h3>
           <p>100% CALIBRATED - Indomarine Premium Board.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20INDOMARINE%20GOLD" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('INDOMARINE GOLD (BWP)')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./plywood8.jpg" alt="CLUB BWP Marine Ply" onerror="tryNextImage(this, ['./plywood8.JPG', './plywood8.png', './plywood8.jpeg'])">
+          <img src="plywood8.jpg" alt="CLUB BWP Marine Ply">
           <span class="product-badge">(BWP) GRADE</span>
         </div>
         <div class="product-details">
           <h3>CLUB ~ 100% FACE-VANEER</h3>
           <p>(BWP) GRADE MARINE PLY.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20CLUB%20BWP%20Marine%20Ply" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('CLUB BWP Marine Ply')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./plywood9.jpg" alt="MARSHAL" onerror="tryNextImage(this, ['./plywood9.JPG', './plywood9.png', './plywood9.jpeg'])">
+          <img src="plywood9.jpg" alt="MARSHAL">
           <span class="product-badge">Commercial Grade</span>
         </div>
         <div class="product-details">
           <h3>MARSHAL (ply & boards)</h3>
           <p>Durable commercial grade plywood & flush doors.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20MARSHAL%20Ply%20and%20Boards" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('MARSHAL (ply & boards)')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./plywood10.jpg" alt="LG-GOLD" onerror="tryNextImage(this, ['./plywood10.JPG', './plywood10.png', './plywood10.jpeg'])">
+          <img src="plywood10.jpg" alt="LG-GOLD">
           <span class="product-badge">100% GURJAN</span>
         </div>
         <div class="product-details">
           <h3>LG-GOLD (ply & boards)</h3>
           <p>100% GURJAN MARINE PLY.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20LG-GOLD%20Marine%20Ply" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('LG-GOLD Marine Ply')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
-      <!-- ================= 3 MDF / HDFWR ================= -->
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="plywood11.PNG" alt="INDOMARINE BLOCK BOARD">
+          <span class="product-badge">100% CALIBRATED</span>
+        </div>
+        <div class="product-details">
+          <h3>INDOMARINE - BLOCK BOARD</h3>
+          <p>100% Calibrated, Boiling Water Proof, Gurjan Face.</p>
+          <button onclick="openBranchModal('INDOMARINE BLOCK BOARD')" class="btn-inquire">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </button>
+        </div>
+      </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./mdf1.JPG" alt="VIR MAXPRO HDFWR" onerror="tryNextImage(this, ['./mdf1.jpg', './mdf1.PNG', './mdf1.png'])">
+          <img src="plywood12.jpg" alt="INDOMARINE CLUB PLY">
+          <span class="product-badge">25 YEARS WARRANTY</span>
+        </div>
+        <div class="product-details">
+          <h3>INDOMARINE CLUB - PLY</h3>
+          <p>BWP Grade, Marine Grade, 25 Years Warranty.</p>
+          <button onclick="openBranchModal('INDOMARINE CLUB PLY')" class="btn-inquire">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= VENEERS ================= -->
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="veneer1.jpg" alt="FIGURE VENEER">
+          <span class="product-badge">EXOTIC GRAIN</span>
+        </div>
+        <div class="product-details">
+          <h3>FIGURE VENEER</h3>
+          <p>Premium decorative natural figure veneer with elegant grain patterns.</p>
+          <button onclick="openBranchModal('FIGURE VENEER')" class="btn-inquire">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="veneer2.jpg" alt="PENCIL VENEER">
+          <span class="product-badge">LINEAR GRAIN</span>
+        </div>
+        <div class="product-details">
+          <h3>PENCIL VENEER</h3>
+          <p>Fine straight pencil stripe veneer with modern linear finish.</p>
+          <button onclick="openBranchModal('PENCIL VENEER')" class="btn-inquire">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="teakveneer1.jpg" alt="TEAK VENEER 1">
+          <span class="product-badge">Code: 64952/78</span>
+        </div>
+        <div class="product-details">
+          <h3>TEAK VENEER (64952/78)</h3>
+          <p>Premium natural teak veneer sheet with rich wood grain texturing.</p>
+          <button onclick="openBranchModal('TEAK VENEER (64952/78)')" class="btn-inquire">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="teakveneer2.jpg" alt="TEAK VENEER 2">
+          <span class="product-badge">Code: AAA157AT/80</span>
+        </div>
+        <div class="product-details">
+          <h3>TEAK VENEER (AAA157AT/80)</h3>
+          <p>Golden teak veneer sheet with dual-tone smooth finish.</p>
+          <button onclick="openBranchModal('TEAK VENEER (AAA157AT/80)')" class="btn-inquire">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="teakveneer3.jpg" alt="TEAK VENEER 3">
+          <span class="product-badge">Code: 64933/90</span>
+        </div>
+        <div class="product-details">
+          <h3>TEAK VENEER (64933/90)</h3>
+          <p>Warm teak veneer featuring smooth crown grain patterns.</p>
+          <button onclick="openBranchModal('TEAK VENEER (64933/90)')" class="btn-inquire">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="teakveneer4.jpg" alt="TEAK VENEER 4">
+          <span class="product-badge">Code: 65000/220</span>
+        </div>
+        <div class="product-details">
+          <h3>TEAK VENEER (65000/220)</h3>
+          <p>Honey-toned teak veneer featuring uniform vertical texture.</p>
+          <button onclick="openBranchModal('TEAK VENEER (65000/220)')" class="btn-inquire">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="teakveneer5.jpg" alt="TEAK VENEER 5">
+          <span class="product-badge">Code: 62917/136</span>
+        </div>
+        <div class="product-details">
+          <h3>TEAK VENEER (62917/136)</h3>
+          <p>Straight-grained teak veneer sheet with contrast stripes.</p>
+          <button onclick="openBranchModal('TEAK VENEER (62917/136)')" class="btn-inquire">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="teakveneer6.jpg" alt="TEAK VENEER 6">
+          <span class="product-badge">Code: 64925/78</span>
+        </div>
+        <div class="product-details">
+          <h3>TEAK VENEER (64925/78)</h3>
+          <p>Natural teak veneer sheet with dual-tone finish.</p>
+          <button onclick="openBranchModal('TEAK VENEER (64925/78)')" class="btn-inquire">
+            <i class="fab fa-whatsapp"></i> Inquire Price
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= MDF / HDFWR ================= -->
+
+      <div class="product-card">
+        <div class="product-img-box">
+          <img src="mdf1.JPG" alt="VIR MAXPRO HDFWR">
           <span class="product-badge">Double Hardened</span>
         </div>
         <div class="product-details">
           <h3>VIR MAXPRO HDFWR</h3>
           <p>High Density Fiber Board with double hardened weather resistance.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20VIR%20MAXPRO%20HDFWR" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('VIR MAXPRO HDFWR')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./mdf2.JPG" alt="VIR Eco Friendly HDFWR" onerror="tryNextImage(this, ['./mdf2.jpg', './mdf2.PNG', './mdf2.png'])">
+          <img src="mdf2.JPG" alt="VIR Eco Friendly HDFWR">
           <span class="product-badge">Agro Wood</span>
         </div>
         <div class="product-details">
           <h3>VIR Eco-Friendly HDFWR</h3>
           <p>Sustainably made Agro Wood board with high moisture-resistance.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20VIR%20Eco%20Friendly%20HDFWR" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('VIR Eco-Friendly HDFWR')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./vir-ply.JPG" alt="VIR Modala Ply" onerror="tryNextImage(this, ['./vir-ply.jpg', './vir-ply.PNG', './vir-ply.png'])">
+          <img src="vir-ply.JPG" alt="VIR Modala Ply">
           <span class="product-badge">Ultimate Strength</span>
         </div>
         <div class="product-details">
           <h3>VIR Modala Ply</h3>
           <p>Strong weather resistant heavy load bearing board.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20VIR%20Modala%20Ply" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('VIR Modala Ply')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
-      <!-- ================= 6 MERINO LAMINATES ================= -->
+      <!-- ================= MERINO LAMINATES ================= -->
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./laminate1.PNG" alt="Merino Vogue" onerror="tryNextImage(this, ['./laminate1.png', './laminate1.jpg', './laminate1.JPG'])">
+          <img src="laminate1.PNG" alt="Merino Vogue">
           <span class="product-badge">Vogue Collection</span>
         </div>
         <div class="product-details">
           <h3>Merino Vogue - Slant & Reeds</h3>
           <p>Linear SLT and woven reed texture laminates.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20Merino%20Vogue" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('Merino Vogue - Slant & Reeds')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./laminate2.jpg" alt="Merino Sampada" onerror="tryNextImage(this, ['./laminate2.JPG', './laminate2.PNG', './laminate2.png'])">
+          <img src="laminate2.jpg" alt="Merino Sampada">
           <span class="product-badge">Heritage</span>
         </div>
         <div class="product-details">
           <h3>Merino Sampada - Kamika Series</h3>
           <p>Botanical prints & heritage inspired decorative sheets.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20Merino%20Sampada" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('Merino Sampada - Kamika Series')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./laminate3.PNG" alt="Merino Cement & Leather" onerror="tryNextImage(this, ['./laminate3.png', './laminate3.jpg', './laminate3.JPG'])">
+          <img src="laminate3.PNG" alt="Merino Cement & Leather">
           <span class="product-badge">Concrete & Leather</span>
         </div>
         <div class="product-details">
           <h3>Merino Cement & Nubuck Leather</h3>
           <p>Real concrete look and tactile leather finish laminates.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20Merino%20Leather%20Laminates" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('Merino Cement & Nubuck Leather')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./laminate4.PNG" alt="Merino Ribbed" onerror="tryNextImage(this, ['./laminate4.png', './laminate4.jpg', './laminate4.JPG'])">
+          <img src="laminate4.PNG" alt="Merino Ribbed">
           <span class="product-badge">Fluted & Wood</span>
         </div>
         <div class="product-details">
           <h3>Merino Ribbed & Finewood Series</h3>
           <p>3D fluted textures and authentic natural wood grains.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20Merino%20Ribbed" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('Merino Ribbed & Finewood Series')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./laminate5.PNG" alt="Merino Sampada Ethnic" onerror="tryNextImage(this, ['./laminate5.png', './laminate5.jpg', './laminate5.JPG'])">
+          <img src="laminate5.PNG" alt="Merino Sampada Ethnic">
           <span class="product-badge">Ethnic Art</span>
         </div>
         <div class="product-details">
           <h3>Merino Sampada - Heritage Art</h3>
           <p>Traditional Indian motifs for high-end interior accents.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20Merino%20Ethnic" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('Merino Sampada - Heritage Art')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./laminate6.PNG" alt="Merino Speciality" onerror="tryNextImage(this, ['./laminate6.png', './laminate6.jpg', './laminate6.JPG'])">
+          <img src="laminate6.PNG" alt="Merino Speciality">
           <span class="product-badge">Natural Feel</span>
         </div>
         <div class="product-details">
           <h3>Merino Speciality Laminature</h3>
           <p>Mountain Pine wood finish in Denim and Mocha tones.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20Merino%20Laminature" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('Merino Speciality Laminature')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
-      <!-- ================= 2 WALL PANELS ================= -->
+      <!-- ================= WALL PANELS ================= -->
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./panel1.PNG" alt="SLAT Louvered Planks" onerror="tryNextImage(this, ['./panel1.png', './panel1.jpg', './panel1.JPG'])">
+          <img src="panel1.PNG" alt="SLAT Louvered Planks">
           <span class="product-badge">Wall Paneling</span>
         </div>
         <div class="product-details">
           <h3>SLAT Louvered Planks Collection</h3>
           <p>9ft x 122mm Louvered planks for TV units and walls.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20SLAT%20Louvered%20Planks" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('SLAT Louvered Planks Collection')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="./panel2.PNG" alt="Branded Pre-Laminated Panels" onerror="tryNextImage(this, ['./panel2.png', './panel2.jpg', './panel2.JPG'])">
+          <img src="panel2.PNG" alt="Branded Pre-Laminated Panels">
           <span class="product-badge">Prelam Boards</span>
         </div>
         <div class="product-details">
           <h3>Premium Pre-Laminated Panels</h3>
           <p>CenturyPly, Greenlam, Merino Lustre & TESA range.</p>
-          <a href="https://wa.me/918686442334?text=Hi,%20I%20am%20interested%20in%20Pre-Laminated%20Panels" class="btn-inquire" target="_blank">
+          <button onclick="openBranchModal('Premium Pre-Laminated Panels')" class="btn-inquire">
             <i class="fab fa-whatsapp"></i> Inquire Price
-          </a>
+          </button>
         </div>
       </div>
 
@@ -759,8 +974,8 @@
         <p><i class="fas fa-map-marker-alt" style="color:#fbbf24;"></i> # 12-2-389/44/1, Beside Sajid Kirana Store, Opp. Chicken Centre, Ali Nagar, Saber Nagar, Hyderabad.</p>
         <p><strong>Contact Numbers:</strong></p>
         <ul class="phone-list">
-          <li><a href="https://wa.me/919848156702" target="_blank"><i class="fab fa-whatsapp"></i> +91 98481 56702</a></li>
           <li><a href="https://wa.me/918686442334" target="_blank"><i class="fab fa-whatsapp"></i> +91 86864 42334</a></li>
+          <li><a href="https://wa.me/919848156702" target="_blank"><i class="fab fa-whatsapp"></i> +91 98481 56702</a></li>
         </ul>
       </div>
 
@@ -773,7 +988,6 @@
         <ul class="phone-list">
           <li><a href="https://wa.me/919513060750" target="_blank"><i class="fab fa-whatsapp"></i> +91 95130 60750</a></li>
           <li><a href="https://wa.me/917090011535" target="_blank"><i class="fab fa-whatsapp"></i> +91 70900 11535</a></li>
-          <li><a href="https://wa.me/918792486738" target="_blank"><i class="fab fa-whatsapp"></i> +91 87924 86738</a></li>
         </ul>
       </div>
     </div>
@@ -828,12 +1042,56 @@
     </div>
   </section>
 
+  <!-- BRANCH SELECTION MODAL POPUP -->
+  <div class="modal-overlay" id="branchModal">
+    <div class="modal-card">
+      <button class="close-modal" onclick="closeBranchModal()">&times;</button>
+      <h3>Select Branch Location</h3>
+      <p>Inquire price for <strong id="selectedProductName" style="color:#111827;"></strong></p>
+      <div class="modal-buttons">
+        <a id="hydBtn" href="#" class="branch-btn btn-hyd" target="_blank">
+          <i class="fab fa-whatsapp"></i> Hyderabad Branch
+        </a>
+        <a id="glbBtn" href="#" class="branch-btn btn-glb" target="_blank">
+          <i class="fab fa-whatsapp"></i> Gulbarga Branch
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
     <p>&copy; 2026 National Plywood. All Rights Reserved.</p>
   </footer>
 
   <script>
+    let currentProduct = '';
+
+    function openBranchModal(productName) {
+      currentProduct = productName;
+      document.getElementById('selectedProductName').innerText = productName;
+      
+      const hydMsg = encodeURIComponent(`Hi, I am inquiring about price for "${productName}" (Hyderabad Branch)`);
+      const glbMsg = encodeURIComponent(`Hi, I am inquiring about price for "${productName}" (Gulbarga Branch)`);
+      
+      document.getElementById('hydBtn').href = `https://wa.me/918686442334?text=${hydMsg}`;
+      document.getElementById('glbBtn').href = `https://wa.me/919513060750?text=${glbMsg}`;
+      
+      document.getElementById('branchModal').style.display = 'flex';
+    }
+
+    function closeBranchModal() {
+      document.getElementById('branchModal').style.display = 'none';
+    }
+
+    // Close Modal on Overlay Click
+    window.onclick = function(event) {
+      const modal = document.getElementById('branchModal');
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+
     // Review Form Submission Handler
     document.getElementById('reviewForm').addEventListener('submit', function(e) {
       e.preventDefault();
