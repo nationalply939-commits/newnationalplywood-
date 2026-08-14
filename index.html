@@ -92,6 +92,9 @@
       align-items: center;
       gap: 10px;
       box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
       transition: transform 0.2s;
     }
 
@@ -150,7 +153,7 @@
     .product-img-box {
       position: relative;
       width: 100%;
-      height: 250px;
+      height: 260px;
       background: #e5e7eb;
     }
 
@@ -200,7 +203,7 @@
       border: none;
       cursor: pointer;
       width: 100%;
-      padding: 10px;
+      padding: 11px;
       border-radius: 8px;
       font-weight: 600;
       display: flex;
@@ -262,7 +265,7 @@
     }
 
     .phone-list li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .phone-list a {
@@ -370,78 +373,89 @@
       background: #1f2937;
     }
 
-    /* MODAL POPUP FOR BRANCH SELECTION */
+    /* MODAL POPUP FOR MULTI-NUMBER SELECTION */
     .modal-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.7);
       display: none;
       justify-content: center;
       align-items: center;
       z-index: 2000;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(5px);
     }
 
     .modal-card {
       background: #fff;
       width: 90%;
-      max-width: 420px;
+      max-width: 480px;
       padding: 25px;
       border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
     .modal-card h3 {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       color: #111827;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
+      text-align: center;
     }
 
-    .modal-card p {
-      font-size: 0.85rem;
+    .modal-card p.subtitle {
+      font-size: 0.88rem;
       color: #6b7280;
       margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .branch-group-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #d97706;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 15px;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px dashed #e5e7eb;
     }
 
     .modal-buttons {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
     }
 
-    .branch-btn {
-      padding: 12px;
+    .num-btn {
+      padding: 10px 14px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
       color: white;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-size: 0.95rem;
-      transition: transform 0.2s;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      transition: transform 0.15s, opacity 0.2s;
     }
 
-    .btn-hyd {
+    .num-btn:hover {
+      opacity: 0.9;
+      transform: scale(1.01);
+    }
+
+    .btn-hyd-num {
       background: #111827;
     }
 
-    .btn-hyd:hover {
-      background: #1f2937;
-    }
-
-    .btn-glb {
-      background: #d97706;
-    }
-
-    .btn-glb:hover {
-      background: #b45309;
+    .btn-glb-num {
+      background: #25d366;
     }
 
     .close-modal {
@@ -450,7 +464,7 @@
       right: 15px;
       background: none;
       border: none;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       color: #9ca3af;
       cursor: pointer;
     }
@@ -516,7 +530,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood1.jpg" alt="GURJAN TREE">
+          <img src="./plywood1.jpg" alt="GURJAN TREE">
           <span class="product-badge">100% GURJAN</span>
         </div>
         <div class="product-details">
@@ -530,7 +544,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood2.jpg" alt="CLUB Marine Ply">
+          <img src="./plywood2.jpg" alt="CLUB Marine Ply">
           <span class="product-badge">100% FACE-VANEER</span>
         </div>
         <div class="product-details">
@@ -544,7 +558,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood3.jpg" alt="INDOMARINE PLATINUM">
+          <img src="./plywood3.jpg" alt="INDOMARINE PLATINUM">
           <span class="product-badge">100% CALIBRATED</span>
         </div>
         <div class="product-details">
@@ -558,7 +572,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood4.jpg" alt="OPTIMUM PLY">
+          <img src="./plywood4.jpg" alt="OPTIMUM PLY">
           <span class="product-badge">100% Gurjan Marine</span>
         </div>
         <div class="product-details">
@@ -572,7 +586,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood5.jpg" alt="SUPER GOLD">
+          <img src="./plywood5.jpg" alt="SUPER GOLD">
           <span class="product-badge">100% HARDWOOD</span>
         </div>
         <div class="product-details">
@@ -586,7 +600,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood6.jpg" alt="CHERRY WOOD">
+          <img src="./plywood6.jpg" alt="CHERRY WOOD">
           <span class="product-badge">⚓️ MARINE GRADE</span>
         </div>
         <div class="product-details">
@@ -600,7 +614,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood7.jpg" alt="INDOMARINE GOLD">
+          <img src="./plywood7.jpg" alt="INDOMARINE GOLD">
           <span class="product-badge">100% CALIBRATED</span>
         </div>
         <div class="product-details">
@@ -614,7 +628,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood8.jpg" alt="CLUB BWP Marine Ply">
+          <img src="./plywood8.jpg" alt="CLUB BWP Marine Ply">
           <span class="product-badge">(BWP) GRADE</span>
         </div>
         <div class="product-details">
@@ -628,7 +642,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood9.jpg" alt="MARSHAL">
+          <img src="./plywood9.jpg" alt="MARSHAL">
           <span class="product-badge">Commercial Grade</span>
         </div>
         <div class="product-details">
@@ -642,7 +656,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood10.jpg" alt="LG-GOLD">
+          <img src="./plywood10.jpg" alt="LG-GOLD">
           <span class="product-badge">100% GURJAN</span>
         </div>
         <div class="product-details">
@@ -656,7 +670,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood11.PNG" alt="INDOMARINE BLOCK BOARD">
+          <img src="./plywood11.PNG" alt="INDOMARINE BLOCK BOARD">
           <span class="product-badge">100% CALIBRATED</span>
         </div>
         <div class="product-details">
@@ -670,7 +684,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="plywood12.jpg" alt="INDOMARINE CLUB PLY">
+          <img src="./plywood12.jpg" alt="INDOMARINE CLUB PLY">
           <span class="product-badge">25 YEARS WARRANTY</span>
         </div>
         <div class="product-details">
@@ -686,7 +700,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="veneer1.jpg" alt="FIGURE VENEER">
+          <img src="./veneer1.jpg" alt="FIGURE VENEER">
           <span class="product-badge">EXOTIC GRAIN</span>
         </div>
         <div class="product-details">
@@ -700,7 +714,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="veneer2.jpg" alt="PENCIL VENEER">
+          <img src="./veneer2.jpg" alt="PENCIL VENEER">
           <span class="product-badge">LINEAR GRAIN</span>
         </div>
         <div class="product-details">
@@ -714,7 +728,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="teakveneer1.jpg" alt="TEAK VENEER 1">
+          <img src="./teakveneer1.jpg" alt="TEAK VENEER 1">
           <span class="product-badge">Code: 64952/78</span>
         </div>
         <div class="product-details">
@@ -728,7 +742,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="teakveneer2.jpg" alt="TEAK VENEER 2">
+          <img src="./teakveneer2.jpg" alt="TEAK VENEER 2">
           <span class="product-badge">Code: AAA157AT/80</span>
         </div>
         <div class="product-details">
@@ -742,7 +756,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="teakveneer3.jpg" alt="TEAK VENEER 3">
+          <img src="./teakveneer3.jpg" alt="TEAK VENEER 3">
           <span class="product-badge">Code: 64933/90</span>
         </div>
         <div class="product-details">
@@ -756,7 +770,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="teakveneer4.jpg" alt="TEAK VENEER 4">
+          <img src="./teakveneer4.jpg" alt="TEAK VENEER 4">
           <span class="product-badge">Code: 65000/220</span>
         </div>
         <div class="product-details">
@@ -770,7 +784,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="teakveneer5.jpg" alt="TEAK VENEER 5">
+          <img src="./teakveneer5.jpg" alt="TEAK VENEER 5">
           <span class="product-badge">Code: 62917/136</span>
         </div>
         <div class="product-details">
@@ -784,7 +798,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="teakveneer6.jpg" alt="TEAK VENEER 6">
+          <img src="./teakveneer6.jpg" alt="TEAK VENEER 6">
           <span class="product-badge">Code: 64925/78</span>
         </div>
         <div class="product-details">
@@ -800,7 +814,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="mdf1.JPG" alt="VIR MAXPRO HDFWR">
+          <img src="./mdf1.JPG" alt="VIR MAXPRO HDFWR">
           <span class="product-badge">Double Hardened</span>
         </div>
         <div class="product-details">
@@ -814,7 +828,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="mdf2.JPG" alt="VIR Eco Friendly HDFWR">
+          <img src="./mdf2.JPG" alt="VIR Eco Friendly HDFWR">
           <span class="product-badge">Agro Wood</span>
         </div>
         <div class="product-details">
@@ -828,7 +842,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="vir-ply.JPG" alt="VIR Modala Ply">
+          <img src="./vir-ply.JPG" alt="VIR Modala Ply">
           <span class="product-badge">Ultimate Strength</span>
         </div>
         <div class="product-details">
@@ -844,7 +858,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="laminate1.PNG" alt="Merino Vogue">
+          <img src="./laminate1.PNG" alt="Merino Vogue">
           <span class="product-badge">Vogue Collection</span>
         </div>
         <div class="product-details">
@@ -858,7 +872,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="laminate2.jpg" alt="Merino Sampada">
+          <img src="./laminate2.jpg" alt="Merino Sampada">
           <span class="product-badge">Heritage</span>
         </div>
         <div class="product-details">
@@ -872,7 +886,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="laminate3.PNG" alt="Merino Cement & Leather">
+          <img src="./laminate3.PNG" alt="Merino Cement & Leather">
           <span class="product-badge">Concrete & Leather</span>
         </div>
         <div class="product-details">
@@ -886,7 +900,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="laminate4.PNG" alt="Merino Ribbed">
+          <img src="./laminate4.PNG" alt="Merino Ribbed">
           <span class="product-badge">Fluted & Wood</span>
         </div>
         <div class="product-details">
@@ -900,7 +914,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="laminate5.PNG" alt="Merino Sampada Ethnic">
+          <img src="./laminate5.PNG" alt="Merino Sampada Ethnic">
           <span class="product-badge">Ethnic Art</span>
         </div>
         <div class="product-details">
@@ -914,7 +928,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="laminate6.PNG" alt="Merino Speciality">
+          <img src="./laminate6.PNG" alt="Merino Speciality">
           <span class="product-badge">Natural Feel</span>
         </div>
         <div class="product-details">
@@ -930,7 +944,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="panel1.PNG" alt="SLAT Louvered Planks">
+          <img src="./panel1.PNG" alt="SLAT Louvered Planks">
           <span class="product-badge">Wall Paneling</span>
         </div>
         <div class="product-details">
@@ -944,7 +958,7 @@
 
       <div class="product-card">
         <div class="product-img-box">
-          <img src="panel2.PNG" alt="Branded Pre-Laminated Panels">
+          <img src="./panel2.PNG" alt="Branded Pre-Laminated Panels">
           <span class="product-badge">Prelam Boards</span>
         </div>
         <div class="product-details">
@@ -988,6 +1002,7 @@
         <ul class="phone-list">
           <li><a href="https://wa.me/919513060750" target="_blank"><i class="fab fa-whatsapp"></i> +91 95130 60750</a></li>
           <li><a href="https://wa.me/917090011535" target="_blank"><i class="fab fa-whatsapp"></i> +91 70900 11535</a></li>
+          <li><a href="https://wa.me/918792486738" target="_blank"><i class="fab fa-whatsapp"></i> +91 87924 86738</a></li>
         </ul>
       </div>
     </div>
@@ -1042,18 +1057,40 @@
     </div>
   </section>
 
-  <!-- BRANCH SELECTION MODAL POPUP -->
+  <!-- MULTI-NUMBER BRANCH SELECTION MODAL -->
   <div class="modal-overlay" id="branchModal">
     <div class="modal-card">
       <button class="close-modal" onclick="closeBranchModal()">&times;</button>
-      <h3>Select Branch Location</h3>
-      <p>Inquire price for <strong id="selectedProductName" style="color:#111827;"></strong></p>
+      <h3>Select Contact Number</h3>
+      <p class="subtitle">Inquire for: <strong id="selectedProductName" style="color:#111827;"></strong></p>
+      
+      <!-- Hyderabad Numbers -->
+      <div class="branch-group-title"><i class="fas fa-map-marker-alt"></i> Hyderabad Branch</div>
       <div class="modal-buttons">
-        <a id="hydBtn" href="#" class="branch-btn btn-hyd" target="_blank">
-          <i class="fab fa-whatsapp"></i> Hyderabad Branch
+        <a id="hydBtn1" href="#" class="num-btn btn-hyd-num" target="_blank">
+          <span><i class="fab fa-whatsapp"></i> +91 86864 42334</span>
+          <i class="fas fa-chevron-right"></i>
         </a>
-        <a id="glbBtn" href="#" class="branch-btn btn-glb" target="_blank">
-          <i class="fab fa-whatsapp"></i> Gulbarga Branch
+        <a id="hydBtn2" href="#" class="num-btn btn-hyd-num" target="_blank">
+          <span><i class="fab fa-whatsapp"></i> +91 98481 56702</span>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+      </div>
+
+      <!-- Gulbarga Numbers -->
+      <div class="branch-group-title"><i class="fas fa-map-marker-alt"></i> Gulbarga Branch</div>
+      <div class="modal-buttons">
+        <a id="glbBtn1" href="#" class="num-btn btn-glb-num" target="_blank">
+          <span><i class="fab fa-whatsapp"></i> +91 95130 60750</span>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <a id="glbBtn2" href="#" class="num-btn btn-glb-num" target="_blank">
+          <span><i class="fab fa-whatsapp"></i> +91 70900 11535</span>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <a id="glbBtn3" href="#" class="num-btn btn-glb-num" target="_blank">
+          <span><i class="fab fa-whatsapp"></i> +91 87924 86738</span>
+          <i class="fas fa-chevron-right"></i>
         </a>
       </div>
     </div>
@@ -1065,17 +1102,20 @@
   </footer>
 
   <script>
-    let currentProduct = '';
-
     function openBranchModal(productName) {
-      currentProduct = productName;
       document.getElementById('selectedProductName').innerText = productName;
       
-      const hydMsg = encodeURIComponent(`Hi, I am inquiring about price for "${productName}" (Hyderabad Branch)`);
-      const glbMsg = encodeURIComponent(`Hi, I am inquiring about price for "${productName}" (Gulbarga Branch)`);
+      const msgHyd = encodeURIComponent(`Hi, I am inquiring about price for "${productName}" (Hyderabad Branch)`);
+      const msgGlb = encodeURIComponent(`Hi, I am inquiring about price for "${productName}" (Gulbarga Branch)`);
       
-      document.getElementById('hydBtn').href = `https://wa.me/918686442334?text=${hydMsg}`;
-      document.getElementById('glbBtn').href = `https://wa.me/919513060750?text=${glbMsg}`;
+      // Hyderabad Links
+      document.getElementById('hydBtn1').href = `https://wa.me/918686442334?text=${msgHyd}`;
+      document.getElementById('hydBtn2').href = `https://wa.me/919848156702?text=${msgHyd}`;
+      
+      // Gulbarga Links
+      document.getElementById('glbBtn1').href = `https://wa.me/919513060750?text=${msgGlb}`;
+      document.getElementById('glbBtn2').href = `https://wa.me/917090011535?text=${msgGlb}`;
+      document.getElementById('glbBtn3').href = `https://wa.me/918792486738?text=${msgGlb}`;
       
       document.getElementById('branchModal').style.display = 'flex';
     }
